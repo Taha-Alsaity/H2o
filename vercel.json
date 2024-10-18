@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "builds": [
       {
@@ -7,3 +8,19 @@
     ]
   }
   
+=======
+
+{
+    "builds": [{
+        "src": "H2O/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "H2O/wsgi.py"
+        }
+    ]
+}
+>>>>>>> e35977ed90398b4372959d28a90fbbfdfa175b97

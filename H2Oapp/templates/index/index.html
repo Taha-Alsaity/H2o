@@ -18,8 +18,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&family=Indie+Flower&family=Kalam&family=Kanit&family=Sansita&family=Sofia+Sans+Semi+Condensed:wght@500&family=Ysabeau+Office:wght@300&display=swap" rel="stylesheet">
+<<<<<<< HEAD
 <title>H2O - Home</title>
 <link rel="icon"  href="{% static 'picss/h2e4.png' %}">
+=======
+<title>Document</title>
+>>>>>>> e35977ed90398b4372959d28a90fbbfdfa175b97
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 {% block body %}
@@ -28,7 +32,11 @@
         <nav style="display: flex;"><a title="Switch to English (الانجليزية) " class="info" href="{% url 'homeen' %}"><i class="fa-solid fa-language" style="color: #ffffff;"></i></a> <form method="post" action="{% url 'info' name='home' %}">
             {% csrf_token %}
         <button type="submit" title="Click for more" class="info" href=""><i  class="fa-solid fa-address-card"></i></button> 
+<<<<<<< HEAD
         </form></nav> <nav style=" margin-right: 50px; width: 80px;display: flex; justify-content: space-between;"><a class="inst" style="font-size: 2em;" href="https://www.instagram.com/alsaity_taha/"><i class="fa-brands fa-instagram" style=""></i></a>
+=======
+        </form></nav> <nav style=" margin-right: 50px; width: 80px;display: flex; justify-content: space-between;"><a class="inst" style="font-size: 2em;" href="https://www.instagram.com/taha_al_saity/"><i class="fa-brands fa-instagram" style=""></i></a>
+>>>>>>> e35977ed90398b4372959d28a90fbbfdfa175b97
         <a class="linked" href="https://www.linkedin.com/in/taha-alsaity-917190260/" style="  font-size: 2em;"><i class="fa-brands fa-linkedin" style=""></i></a></nav>
     </div>
     
@@ -38,7 +46,11 @@
         
         {% if message|stringformat:"s" == "code"  %}
         <div style="font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif';" class="alert alert-warning alert-dismissible fade show" role="alert">
+<<<<<<< HEAD
           <img style=" height: 250px;" width="250" src="{% static 'picss/qr2.png' %}" alt=""> <p>قم بمسح الكود</p> 
+=======
+          <img style=" height: 250px;" width="250" src="{% static 'picss/qr.png' %}" alt=""> <p>قم بمسح الكود</p> 
+>>>>>>> e35977ed90398b4372959d28a90fbbfdfa175b97
           <nav style=" font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif';   "> 
              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fa-regular fa-circle-xmark"></i></button>
            </nav></div>

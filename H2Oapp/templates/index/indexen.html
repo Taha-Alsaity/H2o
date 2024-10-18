@@ -1,0 +1,96 @@
+{% extends "index/index.html" %}{% load static %}{% block body %}
+
+<body style="font-weight: 500; font-family: none;" dir="ltr">
+    <div dir="ltr" style=" width: 100%; position: absolute; padding: 10px; padding: 4px; display: flex; justify-content: space-between; align-items: center; margin-top: 7.8px; height: 70px; background-color:rgba(0, 0, 0, 0) ;">
+      <nav style="display: flex;"><a title="(arabic) تغيير للغة العربية" class="info" href="{% url 'home' %}"><i class="fa-solid fa-language" style="color: #ffffff;"></i></a> <form method="post" action="{% url 'info' name='homeen' %}">
+            {% csrf_token %}
+        <button type="submit" title="Click for more" class="info" href=""><i  class="fa-solid fa-address-card"></i></button> 
+        </form></nav> <nav style=" margin-right: 50px; width: 80px;display: flex; justify-content: space-between;"><a class="inst" style="font-size: 2em;" href="https://www.instagram.com/taha_al_saity/"><i class="fa-brands fa-instagram" style=""></i></a>
+        <a class="linked" href="https://www.linkedin.com/in/taha-alsaity-917190260/" style="  font-size: 2em;"><i class="fa-brands fa-linkedin" style=""></i></a></nav>
+    </div>
+    
+    <header style=" border-bottom: 1px white solid; box-shadow: 0px 4px 5px grey; background-color:  rgb(39, 57, 136); height: 300px; display: flex; justify-content: center; align-items: center;"><img style="height:  115px; margin-botto: 20px; margin-left: 5px; filter: drop-shadow(0 0 0.2rem rgb(49, 186, 232));" src="{% static 'picss/h2e.png' %}" alt=""  width="230"></header>
+   
+    <div><div class="search" style=" margin-bottom: 80px; margin-top: 40px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+        {% for message in messages  %}
+        
+        {% if message|stringformat:"s" == "code"  %}
+        <div style="font-family: 'Sofia Sans Semi Condensed', sans-serif;" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <img style=" height: 250px;" width="250" src="{% static 'picss/qr2.png' %}" alt=""> <p>Scan the code</p> 
+          <nav style=" font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif';   "> 
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fa-regular fa-circle-xmark"></i></button>
+           </nav></div>
+
+
+        {% else %}
+        <div style="font-family: 'Sofia Sans Semi Condensed', sans-serif;" class="alert alert-warning alert-dismissible fade show" role="alert">
+           <h1 >your daily amount of water needed</h1><p>{{message}} liter</p> <img width="100" src="{% static 'picss/wb.png' %}" alt="">
+         <nav style=" font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif';   "> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fa-regular fa-circle-xmark"></i></button>
+          </nav></div>
+          {% endif %}
+        
+          {%  endfor %}
+
+
+        <h1 style="  font-family: 'Sofia Sans Semi Condensed', sans-serif; font-weight: 500; margin-bottom: 30px; font-size: 2em;">See your daily amount of water needed</h1>
+        <form action="{% url 'calc'  name='homeen' %}"  method="post" style=" border-radius: 5px; background:none; background-size: cover;  margin: 18px; padding-bottom: 20px; padding-top: 10px;  ">
+    {% csrf_token %}
+            
+                <div class="flex" style="   font-family: 'Sofia Sans Semi Condensed', sans-serif;  width: 100%; text-align: left; margin: 10px;    display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly; ">
+
+
+                    <div style=" width: fit-content; display: flex; justify-content: left; flex-direction: column;" class="relative w-full">
+                        <h1 style="  font-family: 'Sofia Sans Semi Condensed', sans-serif; text-align: left; font-size: 1.8em ; margin-bottom:5px;">Weight</h1>
+
+                        <input min="0" max="200" name="weight" type="number" id="search-dropdown" style="  z-index: 0; border-radius: 5px;  border: 1px grey solid; width: 238px; font-size: 1.3em; height: 80px;" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="0 kg" required>
+
+                    </div>
+
+
+                    <div style="width: fit-content;" class="relative w-full">
+                        <h1 style=" font-family: 'Sofia Sans Semi Condensed', sans-serif;  text-align: left; font-size: 1.8em ; margin-bottom:5px;">Age</h1>
+                        <input min="1" max="110" name="age" type="number" id="search-dropdown" style=" border-radius: 5px;  border: 1px grey solid; width: 238px; font-size: 1.3em; height: 80px;" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="0 years" required>
+
+                    </div>
+
+
+
+                    <div style="width: fit-content;" class="relative w-full">
+                        <h1 style=" font-family: 'Sofia Sans Semi Condensed', sans-serif; text-align: left; font-size: 1.8em ; margin-bottom:5px;" > Height</h1>
+                        <input min="50" max="300" name="tall" type="number" id="search-dropdown" style=" border-radius: 5px;  border: 1px grey solid;  width: 238px; font-size: 1.3em; height: 80px;" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="0 cm" required>
+
+                    </div>
+
+
+
+                    <div style=" width: fit-content;" class="relative w-full">
+                        <h1 style=" font-family: 'Sofia Sans Semi Condensed', sans-serif;  text-align: left; font-size: 1.8em ; margin-bottom:5px;"> Daily training time</h1>
+                        <input min="0"  name="active" type="number" id="search-dropdown" style=" border-radius: 5px;  border: 1px grey solid;   width: 238px; font-size: 1.3em; height: 80px;" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="0 min" required>
+
+                    </div>
+                </div>
+
+            <button type="submit" style=" font-family: 'Sofia Sans Semi Condensed', sans-serif;  width: 140px; margin-top: 60px; height: 50px; background-color:rgb(55, 55, 204); border-radius: 5px; font-size: 1.5em; color: azure; border: 1px rgb(203, 203, 203) solid;"> Submit</button>
+    </form>
+    
+    <div class="nums">
+      <div class="card">
+          <div class="item item--1">
+           <i style="font-size: 1.6em; margin-bottom: 5px; margin-right: 10px;" class="fa-solid fa-user"></i>
+            <span class="quantity"><div class="num" data-goal="">{{stat.number}}</div></span>
+            <span class="text text--1">Total attempts</span>
+          </div></div></div></div>
+    <div class="eco" style=' font-size: 1em;  display:flex; justify-content: center; margin-top: 60px;'>  <img style="margin-right:5px ;" width="50px" src="{% static 'picss/eco3.png' %}" alt=""> Production</div>
+  
+              <div class="ocean">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+          </div>
+          <script>
+
+
+          </script>
+</body>
+{% endblock %}

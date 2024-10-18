@@ -1,0 +1,307 @@
+.flex div{
+
+    margin: 20px;
+    
+
+}
+
+
+.wave {
+background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTc0LjQ3MDY0IDQ2LjM0NTk0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9IndhdmUtZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjEwMCUiIHgyPSIwJSIgeTI9IjAlIj4KICAgICAgPHN0b3Agc3R5bGU9InN0b3AtY29sb3I6IzAwMDAzZjsiIG9mZnNldD0iMCIgaWQ9ImRlZXAtb2NlYW4iIC8+CiAgICAgIDxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOiM0ZTZmZmY7IiBvZmZzZXQ9IjEiIGlkPSJzaGFsbG93LW9jZWFuIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHBhdGggc3R5bGU9ImZpbGw6dXJsKCN3YXZlLWdyYWRpZW50KTtmaWxsLXJ1bGU6ZXZlbm9kZCIgZD0ibSAwLDExLjM4NDQ4IGMgMCwwIDIxLjEzMzg1MSwxMS4zOTUzMSA0My42MTc2NjEsMTEuMzg0NDEgQyA2Ni4xMDE0NzEsMjIuNzU3OTkgMTA3Ljk2ODU2LDAuMDMyNjIgMTMwLjUwOCw3ZS01IGMgMjIuNTM5NDQsLTAuMDMyNSA0My45NjI2NCwxMS4zODQ0MSA0My45NjI2NCwxMS4zODQ0MSBWIDQ2LjM0NTk0IEggMCBaIiAvPgo8L3N2Zz4=");
+background-repeat: repeat-x;
+background-size: 500px auto;
+background-position: bottom;
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 200px;
+animation: wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+z-index: 1;
+}
+.ocean{
+
+top: 180px;
+bottom: 0;
+
+position: relative;
+}
+.wave:nth-of-type(2) {
+opacity: 0.7;
+animation: swell 5s ease -1.25s infinite, wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite;
+z-index: 0;
+
+}
+
+@keyframes wave {
+0% {
+background-position-x: 0%;
+}
+100% {
+background-position-x: -500px;
+}
+}
+
+@keyframes swell {
+0%, 100% {
+background-position: right bottom 10px;
+}
+50% {
+background-position: right bottom 0;
+}
+} 
+.eco{
+
+width: 100%; 
+position: relative; 
+font-size: 1em;  
+}
+.alert{
+    background-color: rgb(248, 246, 246);
+    display: flex;
+    flex-direction: column;
+    color: rgb(12, 12, 12);
+    padding:20px;
+    width: 280px;
+    border-radius: 10px;
+    border: 2px solid rgb(6, 6, 6);
+    height: 400px;
+    font-size: 1.7em;
+    justify-content: space-between;
+    position: fixed;
+    margin: auto;
+    text-align: center;
+    
+    left: 50%;
+    bottom: 1%;
+    align-items: center;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    box-shadow:0px 5px 10px rgb(214, 213, 213) ;    }
+.btn-close{
+    
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: rgb(10, 10, 10);
+    padding-left: 4px;
+    padding-right: 4px;
+    
+    align-items: center;
+}
+.btn-close:hover{
+    cursor: pointer;
+    color: rgb(199, 14, 14);
+    
+}
+.linked i {
+    color: #ffffff;
+}
+.linked i:hover{
+  
+    filter: drop-shadow(0 0 0.3rem rgb(49, 186, 232));
+}
+.inst:hover{
+    filter: drop-shadow(0 0 0.3rem rgb(232, 49, 128));
+    
+}
+.inst{
+color: #ffffff;}
+.info{
+    color: #ffffff;
+    margin-left: 30px;
+    font-size: 1.9em;
+}
+.stat h1{
+    font-size: 2em ; 
+}
+.stat h1:nth-child(1){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+
+}
+.stat h1:nth-child(3){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+
+}
+header{
+    border-radius: 0px 0px 150px 150px; 
+}
+@media (max-width:855px){
+    .stat{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .stat h1:nth-child(1){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+    font-size: 1.5em;
+}
+.stat h1:nth-child(3){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+    font-size: 1.5em;
+}
+}
+@media (max-width:560px){
+
+    .stat{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .stat h1:nth-child(1){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+    font-size: 1.2em;
+}
+.stat h1:nth-child(3){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+    font-size: 1.2em;
+}
+header{
+    border-radius: 0px 0px 120px 120px; 
+}
+.stat h1:nth-child(2){
+  
+    font-size: 1.5em;
+}
+}
+@media (max-width:360px){
+    
+
+
+    .stat{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .stat h1:nth-child(1){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+    font-size: 1.2em;
+}
+.stat h1:nth-child(3){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+    font-size: 1.2em;
+}
+header{
+    border-radius: 0px 0px 100px 100px; 
+}
+.stat h1:nth-child(2){
+  
+    font-size: 1.4em;
+}
+}
+@media (max-width:315px){
+    .stat{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .stat h1:nth-child(1){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+    font-size: 1.5em;
+}
+.stat h1:nth-child(3){
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+    font-size: 1.2em;
+    display: none;
+    opacity: 0;
+}
+header{
+    border-radius: 0px 0px 120px 120px; 
+}
+.stat h1:nth-child(2){
+   margin-left: 10px;
+    font-size: 1.5em;
+}
+}
+
+
+
+
+.flex div h1{
+font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+
+}
+
+body{
+    font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+.nums{
+display: flex;
+justify-content: center;
+
+
+text-align:center;
+}
+
+
+.num{
+font-size: 1.3em;
+width: 90px;
+padding-top: 10px;
+margin-right: 10px;
+margin-top: 10px;
+border-top: 2px solid rgb(250, 250, 250);
+}
+
+.card {
+width: 60%;
+height: 204px;
+color: white;
+display:flex;
+grid-template-columns: 1fr 1fr;
+justify-content: space-around;
+grid-template-rows: 1fr 1fr;
+gap: 5px;
+margin-top: 50px;
+overflow: visible;
+margin-bottom: 50px;
+font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;
+}
+
+.card .item {
+border-radius: 10px;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.item:hover {
+transform: scale(0.95);
+transition: all 0.3s;
+}
+
+.item svg {
+width: 40px;
+height: 40px;
+margin-bottom: 7px;
+}
+
+.item--1 {
+background: #1f1fded9;
+}
+
+
+
+.quantity {
+font-size: 25px;
+
+font-weight: 600;
+}
+
+.text {
+font-size: 20px;
+font-family: inherit;
+font-weight: 600;
+}
+
+.text--1 {
+color: rgb(228, 228, 246);
+}

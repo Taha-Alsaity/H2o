@@ -42,7 +42,3 @@ def calc(request ,name):
     return  redirect(f'{name}')
 
 
-def info(request, name):
-
-    messages.success(request,'code')
-    return  redirect(f'{name}')

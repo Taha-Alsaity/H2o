@@ -18,16 +18,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&family=Indie+Flower&family=Kalam&family=Kanit&family=Sansita&family=Sofia+Sans+Semi+Condensed:wght@500&family=Ysabeau+Office:wght@300&display=swap" rel="stylesheet">
-
-<title>HEALTHY ME - H2O</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=El+Messiri:wght@500&family=Indie+Flower&family=Kalam&family=Kanit&family=Readex+Pro&family=Righteous&family=Sansita&family=Sixtyfour+Convergence&family=Sofia+Sans+Semi+Condensed:wght@500&family=Ysabeau+Office:wght@300&display=swap" rel="stylesheet">
+<title>HEALTHY ME - Calories</title>
 <link rel="icon"  href="{% static 'picss/h2e4.png' %}">
 
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
+<style>
+    .h1{
+        font-family: "Bebas Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  font-size: 6.1em;
+    }
+</style>
 </head>
 {% block body %}
 <body dir="rtl" >
     <div dir="ltr" style=" width: 100%; position: absolute; padding: 10px; padding: 4px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px; height: 70px; background-color:rgba(0, 0, 0, 0) ;">
-        <nav style="display: flex;"><a title="Switch to English (الانجليزية) " class="info" href="{% url 'homeen' %}"><i class="fa-solid fa-language" style="color: #ffffff;"></i></a> 
+        <nav style="display: flex;"><a title="Switch to English (الانجليزية) " class="info" href="{% url 'homeCen' %}"><i class="fa-solid fa-language" style="color: #ffffff;"></i></a> 
         <a type="submit" title="Click for more" class="info" href="https://taha-alsaity-portfolio.up.railway.app/"><i  class="fa-solid fa-address-card"></i></a> 
 
        </nav> <nav style=" margin-right: 50px; width: 80px;display: flex; justify-content: space-between;"><a class="inst" style="font-size: 2em;" href="https://www.instagram.com/saity_taha/"><i class="fa-brands fa-instagram" style=""></i></a>
@@ -35,7 +46,7 @@
         <a class="linked" href="https://www.linkedin.com/in/taha-alsaity-917190260/" style="  font-size: 2em;"><i class="fa-brands fa-linkedin" style=""></i></a></nav>
     </div>
     
-    <header style=" border-bottom: 1px white solid; box-shadow: 0px 4px 5px grey; background-color: rgb(39, 57, 136); height: 300px; display: flex; justify-content: center; align-items: center;"><img style="height:  115px; margin-botto: 20px; margin-left: 5px; filter: drop-shadow(0 0 0.2rem rgb(49, 186, 232));" src="{% static 'picss/h2e.png' %}" alt="" width="230"></header>
+    <header style=" border-bottom: 1px white solid; box-shadow: 0px 4px 5px grey; background-color: rgb(32, 173, 135); height: 300px; display: flex; justify-content: center; align-items: center;"><h1 class="h1" style=" margin-left: 10px;">Calories <sub style=" font-size: 0.6em; color:  rgb(179, 210, 227);">me</sub></h1></header>
       <div><div class="search" style=" margin-bottom: 80px; margin-top: 40px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
         {% if messages %}
         {% for message in messages  %}
@@ -44,7 +55,7 @@
 
         
         <div style="font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif';" class="alert alert-warning alert-dismissible fade show" role="alert">
-           <h1 >احتياجك اليومي من الماء هو </h1><p>{{message}} لتر</p> <img width="100" src="{% static 'picss/wb.png' %}" alt="">
+           <h1 >احتياجك اليومي من السعرات هو </h1><p>{{message}} سعرة حرارية</p> <img width="100" src="{% static 'picss/kcal.png' %}" alt="">
          <nav style=" font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif';   "> 
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fa-regular fa-circle-xmark"></i></button>
           </nav></div>
@@ -53,8 +64,8 @@
           {%  endfor %}
 {% endif %}
 
-        <h1 style=" font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif; font-weight: 500; margin-bottom: 30px; font-size: 2em;">اعرف احتياجك اليومي من الماء</h1>
-        <form action="{% url 'calc' name='home' %}"  method="post" style=" border-radius: 5px; background:none; background-size: cover;  margin: 18px; padding-bottom: 20px; padding-top: 10px;  ">
+        <h1 style=" font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif; font-weight: 500; margin-bottom: 30px; font-size: 2em;">اعرف احتياجك اليومي من السعرات</h1>
+        <form action="{% url 'calcalc' name='homeC' %}"  method="post" style=" border-radius: 5px; background:none; background-size: cover;  margin: 18px; padding-bottom: 20px; padding-top: 10px;  ">
     {% csrf_token %}
             
                 <div class="flex" style="   font-family: 'El Messiri', sans-serif,'Ysabeau Office', sans-serif;  width: 100%; text-align: left; margin: 10px;    display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly; ">
@@ -82,32 +93,42 @@
 
                     </div>
 
+                                        <div style="width: fit-content;" class="relative w-full">
+                        <h1 style="text-align: right; font-size: 1.8em ; margin-bottom:5px;" > الجنس</h1>
+                        <select min="50" max="300" name="gender" type="" id="search-dropdown" style=" border-radius: 5px;  border: 1px grey solid;  width: 238px; font-size: 1.3em; height: 80px;" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="" required>
+                            <option value="male">رجل</option>
+                            <option value="female">مرأه</option>
+                        </select>
+
+                    </div>
+
 
 
                     <div style=" width: fit-content;" class="relative w-full">
-                        <h1 style="text-align: right; font-size: 1.8em ; margin-bottom:5px;"> دقائق ممارسة الرياضة</h1>
-                        <input min="0"  name="active" type="number" id="search-dropdown" style=" border-radius: 5px;  border: 1px grey solid;   width: 238px; font-size: 1.3em; height: 80px;" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="0 دقيقة" required>
-
+                        <h1 style="text-align: right; font-size: 1.8em ; margin-bottom:5px;"> معدل النشاط</h1>
+                        <select min="50" max="300" name="active" type="" id="search-dropdown" style=" border-radius: 5px;  border: 1px grey solid;  width: 238px; font-size: 1.3em; height: 80px;" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="" required>
+                            <option value="1.2">لا يوجد نشاط بدني</option>
+                            <option value="1.375">نشاط بدني خفيف</option>
+                            <option value="1.55">نشاط بدني معتدل</option>
+                            <option value="1.725">نشاط بدني عالي</option>
+                            <option value="1.9">نشاط بدني مكثف</option>
+                        </select>
                     </div>
                 </div>
 
-            <button type="submit" style="width: 140px; margin-top: 60px; height: 50px; background-color: rgb(55, 55, 204); border-radius: 5px; font-size: 1.5em; color: azure; border: 1px rgb(203, 203, 203) solid;"> تأكيد</button>
+            <button type="submit" style="width: 140px; margin-top: 60px; height: 50px; background-color: rgb(55, 204, 125); border-radius: 5px; font-size: 1.5em; color: azure; border: 1px rgb(203, 203, 203) solid;"> تأكيد</button>
     </form>
  <div class="nums">
-        <div class="card">
-            <div class="item item--1">
+        <div  class="card">
+            <div style="background-color: rgb(32, 173, 135);" class="item item--1">
              <i style="font-size: 1.6em; margin-bottom: 5px; margin-right: 10px;" class="fa-solid fa-user"></i>
               <span class="quantity"><div class="num" data-goal="">{{stat.number}}</div></span>
               <span class="text text--1">عدد المحاولات</span>
             </div></div></div></div>
   
-    <div class="eco" style='   font-size: 1em;  display:flex; justify-content: center; margin-top: 60px;'><img style="margin-left:10px ;" width="50px" src="{% static 'picss/eco3.png' %}" alt=""> oct 2024  Powered by &copy;</div>
+    <div class="eco" style=' padding-bottom: 50px;   font-size: 1em;  display:flex; justify-content: center; margin-top: 60px;'><img style="margin-left:10px ;" width="50px" src="{% static 'picss/eco3.png' %}" alt=""> oct 2024  Powered by &copy;</div>
 
-              <div class="ocean">
-            <div class="wave"></div>
-            <div class="wave"></div>
-            <div class="wave"></div>
-          </div>
+   
 </body>
 {% endblock %}
 </html>

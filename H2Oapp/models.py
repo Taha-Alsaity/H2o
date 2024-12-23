@@ -6,3 +6,10 @@ class stats(models.Model):
 
    def __str__(self):
         return f"{self.id}: {self.number} "
+   
+
+class calstats(models.Model):
+   number = models.IntegerField(null=True)
+
+   def __str__(self):
+        return f"{self.id}: {self.number} "

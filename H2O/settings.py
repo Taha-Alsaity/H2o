@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://healthyme.up.railway.app/',  # Add your production URL
+    'https://healthyme.up.railway.app',  # Add your production URL
 ]
 
 

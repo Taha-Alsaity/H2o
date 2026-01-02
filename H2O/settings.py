@@ -28,9 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://healthyme.up.railway.app',  # Add your production URL
-]
+
 
 
 
@@ -84,15 +82,10 @@ import os
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'railway'),  # default to 'railway'
-        'USER': os.environ.get('DB_USER', 'postgres'),  # default to 'postgres'
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'ETTKQvJorMAGQCCSmOXeDbYylTHfCjKY'),  # default to a placeholder
-        'HOST': os.environ.get('DB_HOST', 'viaduct.proxy.rlwy.net'),  # default to your host
-        'PORT': os.environ.get('DB_PORT', '21253'),  # default to your port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(os.path.dirname(os.path.dirname(__file__)), 'db.sqlite3'),
     }
 }
-
 
 
 # Password validation
